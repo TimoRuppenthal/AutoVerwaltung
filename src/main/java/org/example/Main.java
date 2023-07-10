@@ -2,6 +2,9 @@ package org.example;
 
 import io.jexxa.core.JexxaMain;
 import io.jexxa.drivingadapter.rest.RESTfulRPCAdapter;
+import org.example.domain.Auto;
+import org.example.domain.AutoVerwaltung;
+
 
 import java.util.List;
 
