@@ -3,8 +3,9 @@ package org.example;
 import io.jexxa.core.JexxaMain;
 import io.jexxa.drivingadapter.rest.RESTfulRPCAdapter;
 import org.example.domain.Auto;
+import org.example.domain.AutoRepository;
 import org.example.domain.AutoVerwaltung;
-
+import org.example.infrastructure.drivenadapter.persistence.AutoRepositoryImpl;
 
 import java.util.List;
 
@@ -12,9 +13,11 @@ public class Main {
     public String AutoVerwaltung() {
         return "AutoVerwaltung";
     }
+
     @SuppressWarnings("java:S106")// Okay da Demoprojekt
     public static void main(String[] args) {
-        AutoVerwaltung autoVerwaltung = new AutoVerwaltung();
+        AutoRepository autoRepository = new AutoRepositoryImpl();
+        AutoVerwaltung autoVerwaltung = new AutoVerwaltung(autoRepository);
         Auto porsche =new Auto(10,5,"Porsche");
         Auto bugatti =new Auto(22,5,"Bugatti");
         autoVerwaltung.add(porsche);
