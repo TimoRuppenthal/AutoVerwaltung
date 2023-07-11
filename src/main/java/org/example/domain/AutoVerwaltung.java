@@ -1,20 +1,22 @@
 package org.example.domain;
 
-import org.example.domain.Auto;
-
-import java.util.ArrayList;
 import java.util.List;
 
 public class AutoVerwaltung {
-    private final List<Auto> autoList = new ArrayList<>();
+    private final AutoRepository autoRepository;
 
     public void add(Auto auto){
-        autoList.add(auto);
+        autoRepository.add(auto);
     }
+    @SuppressWarnings("unused")
     public void delete(Auto auto){
-        autoList.remove(auto);
+        autoRepository.remove(auto);
     }
-    public List<Auto> get() {
-        return autoList;
+
+    public List<Auto> get(){
+        return autoRepository.getAll();
+    }
+    public AutoVerwaltung (AutoRepository autoRepository){
+        this.autoRepository = autoRepository;
     }
 }
