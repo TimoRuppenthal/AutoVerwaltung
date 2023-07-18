@@ -6,6 +6,12 @@ import org.example.domain.AutoRepository;
 import java.util.List;
 
 public class StammdatenService {
+
+
+    private static final Auto Porsche = new Auto(10, 5, "Porsche");
+    private static final Auto Bugatti = new Auto(22, 5, "Bugatti");
+
+
     private final AutoRepository autoRepository;
 
     public StammdatenService(AutoRepository autoRepository){
@@ -14,11 +20,11 @@ public class StammdatenService {
 
     public void initStammdaten(){
         List<Auto> alleAutos = autoRepository.getAll();
-        if(!alleAutos.contains(new Auto(10, 5, "Porsche"))){
-            autoRepository.add(new Auto(10, 5, "Porsche"));
+        if(!alleAutos.contains(Porsche)){
+            autoRepository.add(Porsche);
         }
-        if(!alleAutos.contains(new Auto(22, 5, "Bugatti"))){
-            autoRepository.add(new Auto(22, 5, "Bugatti"));
+        if(!alleAutos.contains(Bugatti)){
+            autoRepository.add(Bugatti);
         }
         autoRepository
                 .getAll()
