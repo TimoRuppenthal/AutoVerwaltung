@@ -8,8 +8,8 @@ import java.util.List;
 public class StammdatenService {
     private final AutoRepository autoRepository;
 
-    public StammdatenService(AutoRepository instrumentenRepository){
-        this.autoRepository = instrumentenRepository;
+    public StammdatenService(AutoRepository autoRepository){
+        this.autoRepository = autoRepository;
     }
 
     public void initStammdaten(){
