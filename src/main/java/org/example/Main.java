@@ -8,9 +8,7 @@ import org.example.domain.AutoVerwaltung;
 import org.example.domainservice.StammdatenService;
 import org.example.infrastructure.drivenadapter.persistence.AutoRepositoryImpl;
 
-
 public class Main {
-
 
     @SuppressWarnings("java:S106")// Okay da Demoprojekt
     public static void main(String[] args) {
