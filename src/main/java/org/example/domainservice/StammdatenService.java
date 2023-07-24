@@ -8,8 +8,8 @@ import java.util.List;
 public class StammdatenService {
 
 
-    private static final Auto Porsche = new Auto(10, 5, "Porsche");
-    private static final Auto Bugatti = new Auto(22, 5, "Bugatti");
+    private static final Auto Porsche = new Auto(10, 5, "Porsche", 123);
+    private static final Auto Bugatti = new Auto(22, 5, "Bugatti", 234);
 
 
     private final AutoRepository autoRepository;

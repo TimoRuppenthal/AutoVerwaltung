@@ -7,10 +7,13 @@ public class Auto {
     private final String marke;
     private final int verbrauch;
 
-    public Auto(int verbrauch, int sitzplätze, String marke) {
+    private final int fahrzeugidentifikationsnummer;
+
+    public Auto(int verbrauch, int sitzplätze, String marke, int fahrzeugidentifikationsnummer) {
         this.verbrauch = verbrauch;
         this.sitzplätze = sitzplätze;
         this.marke = marke;
+        this.fahrzeugidentifikationsnummer = fahrzeugidentifikationsnummer;
 
     }
     @Override
@@ -18,12 +21,12 @@ public class Auto {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Auto auto = (Auto) o;
-        return Objects.equals(verbrauch, auto.verbrauch) && Objects.equals(sitzplätze, auto.sitzplätze) && Objects.equals(marke, auto.marke);
+        return Objects.equals(verbrauch, auto.verbrauch) && Objects.equals(sitzplätze, auto.sitzplätze) && Objects.equals(marke, auto.marke) && Objects.equals(fahrzeugidentifikationsnummer, auto.fahrzeugidentifikationsnummer);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(verbrauch, sitzplätze, marke);
+        return Objects.hash(verbrauch, sitzplätze, marke, fahrzeugidentifikationsnummer);
     }
 @SuppressWarnings("java:S106")
     public int getVerbrauch() {
@@ -37,4 +40,6 @@ public class Auto {
     public String getMarke() {
         return marke;
     }
+
+    public int getFahrzeugidentifikationsnummer() { return fahrzeugidentifikationsnummer; }
 }

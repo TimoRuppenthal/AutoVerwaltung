@@ -6,13 +6,14 @@ import org.example.domain.Auto;
 import org.example.domain.AutoRepository;
 import org.example.domain.AutoVerwaltung;
 import org.example.domainservice.StammdatenService;
+import java.util.Properties;
 import org.example.infrastructure.drivenadapter.persistence.AutoRepositoryImpl;
 
 public class Main {
 
     @SuppressWarnings("java:S106")// Okay da Demoprojekt
     public static void main(String[] args) {
-        AutoRepository autoRepository = new AutoRepositoryImpl();
+        AutoRepository autoRepository = new AutoRepositoryImpl(new Properties());
         AutoVerwaltung autoVerwaltung = new AutoVerwaltung(autoRepository);
 
         StammdatenService stammdatenService = new StammdatenService(autoRepository);

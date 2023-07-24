@@ -1,22 +1,28 @@
 package org.example.infrastructure.drivenadapter.persistence;
 
+import io.jexxa.infrastructure.RepositoryManager;
+import io.jexxa.infrastructure.persistence.repository.IRepository;
 import org.example.domain.Auto;
 import org.example.domain.AutoRepository;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 public class AutoRepositoryImpl implements AutoRepository {
-    private final List<Auto> autoList = new ArrayList<>();
 
+    private final IRepository<Auto, Integer> repository;
+
+    public AutoRepositoryImpl(Properties properties){
+        this.repository = RepositoryManager.getRepository(Auto.class, Auto::getFahrzeugidentifikationsnummer, properties);
+    }
     public List<Auto> getAll(){
-        return autoList;
+        return repository.get();
     }
 
-    public void remove (Auto auto){
-        autoList.remove(auto);
+    public void remove (Auto auto) {
+        repository.remove(auto.getFahrzeugidentifikationsnummer());
     }
     public void add (Auto auto){
-        autoList.add(auto);
+        repository.add(auto);
     }
 
 }
