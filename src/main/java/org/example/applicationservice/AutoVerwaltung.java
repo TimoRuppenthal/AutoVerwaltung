@@ -1,4 +1,7 @@
-package org.example.domain;
+package org.example.applicationservice;
+
+import org.example.domain.Auto;
+import org.example.domain.AutoRepository;
 
 import java.util.List;
 

@@ -2,9 +2,8 @@ package org.example;
 
 import io.jexxa.core.JexxaMain;
 import io.jexxa.drivingadapter.rest.RESTfulRPCAdapter;
-import org.example.domain.Auto;
 import org.example.domain.AutoRepository;
-import org.example.domain.AutoVerwaltung;
+import org.example.applicationservice.AutoVerwaltung;
 import org.example.domainservice.StammdatenService;
 import java.util.Properties;
 import org.example.infrastructure.drivenadapter.persistence.AutoRepositoryImpl;
