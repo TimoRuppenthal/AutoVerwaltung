@@ -1,10 +1,12 @@
 package org.example.domainservice;
 
+import io.jexxa.addend.applicationcore.DomainService;
 import org.example.domain.Auto;
 import org.example.domain.AutoRepository;
 
 import java.util.List;
 
+@DomainService
 public class StammdatenService {
 
 

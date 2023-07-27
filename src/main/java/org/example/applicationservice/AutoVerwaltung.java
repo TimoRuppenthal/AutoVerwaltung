@@ -1,10 +1,12 @@
 package org.example.applicationservice;
 
+import io.jexxa.addend.applicationcore.ApplicationService;
 import org.example.domain.Auto;
 import org.example.domain.AutoRepository;
 
 import java.util.List;
 
+@ApplicationService
 public class AutoVerwaltung {
     private final AutoRepository autoRepository;
 
