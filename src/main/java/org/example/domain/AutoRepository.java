@@ -8,7 +8,7 @@ import java.util.List;
 public interface AutoRepository {
     List<Auto> getAll();
 
-    void remove(Auto auto);
+    void remove(Fahrzeugidentifikationsnummer fahrzeugidentifikationsnummer);
 
     void add(Auto auto);
 }

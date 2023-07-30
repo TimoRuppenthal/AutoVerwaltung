@@ -11,16 +11,19 @@ import java.util.List;
 public class AutoVerwaltung {
     private final AutoRepository autoRepository;
 
-    public void add(Auto auto){
-        autoRepository.add(auto);
+    public void add(int verbrauch, int sitzplätze, String marke, Fahrzeugidentifikationsnummer fahrzeugidentifikationsnummer){
+        autoRepository.add(new Auto(verbrauch, sitzplätze, marke, fahrzeugidentifikationsnummer.fahrzeugidentifikationsnummer()));
     }
     @SuppressWarnings("unused")
-    public void delete(Auto auto){
-        autoRepository.remove(auto);
+    public void delete(Fahrzeugidentifikationsnummer fahrzeugidentifikationsnummer){
+        autoRepository.remove(fahrzeugidentifikationsnummer);
     }
 
     public List<Fahrzeugidentifikationsnummer> get(){
-        return autoRepository.getAll().stream().map(Auto::getFahrzeugidentifikationsnummer).toList();
+        return autoRepository.getAll()
+                .stream()
+                .map(Auto::getFahrzeugidentifikationsnummer)
+                .toList();
     }
     public AutoVerwaltung (AutoRepository autoRepository){
         this.autoRepository = autoRepository;

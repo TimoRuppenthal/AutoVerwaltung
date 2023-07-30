@@ -22,8 +22,8 @@ public class AutoRepositoryImpl implements AutoRepository {
         return repository.get();
     }
 
-    public void remove (Auto auto) {
-        repository.remove(auto.getFahrzeugidentifikationsnummer());
+    public void remove (Fahrzeugidentifikationsnummer fahrzeugidentifikationsnummer) {
+        repository.remove(fahrzeugidentifikationsnummer);
     }
     public void add (Auto auto){
         repository.add(auto);
