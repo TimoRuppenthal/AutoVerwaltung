@@ -4,6 +4,7 @@ import io.jexxa.addend.applicationcore.ApplicationService;
 import org.example.domain.Auto;
 import org.example.domain.AutoRepository;
 import org.example.domain.Fahrzeugidentifikationsnummer;
+import org.example.domain.AutoDaten;
 
 import java.util.List;
 
@@ -11,8 +12,8 @@ import java.util.List;
 public class AutoVerwaltung {
     private final AutoRepository autoRepository;
 
-    public void add(int verbrauch, int sitzplätze, String marke, Fahrzeugidentifikationsnummer fahrzeugidentifikationsnummer){
-        autoRepository.add(new Auto(verbrauch, sitzplätze, marke, fahrzeugidentifikationsnummer.fahrzeugidentifikationsnummer()));
+    public void add(Fahrzeugidentifikationsnummer fahrzeugidentifikationsnummer, AutoDaten autoDaten){
+        autoRepository.add(new Auto(autoDaten, fahrzeugidentifikationsnummer));
     }
     @SuppressWarnings("unused")
     public void delete(Fahrzeugidentifikationsnummer fahrzeugidentifikationsnummer){

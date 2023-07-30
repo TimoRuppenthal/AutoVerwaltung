@@ -6,17 +6,13 @@ import io.jexxa.addend.applicationcore.AggregateID;
 import java.util.Objects;
 @Aggregate
 public class Auto {
-    private final int sitzplätze;
-    private final String marke;
-    private final int verbrauch;
+    private final AutoDaten autoDaten;
 
     private final Fahrzeugidentifikationsnummer fahrzeugidentifikationsnummer;
 
-    public Auto(int verbrauch, int sitzplätze, String marke, int fahrzeugidentifikationsnummer) {
-        this.verbrauch = verbrauch;
-        this.sitzplätze = sitzplätze;
-        this.marke = marke;
-        this.fahrzeugidentifikationsnummer = new Fahrzeugidentifikationsnummer(fahrzeugidentifikationsnummer);
+    public Auto(AutoDaten autoDaten, Fahrzeugidentifikationsnummer fahrzeugidentifikationsnummer) {
+        this.autoDaten = autoDaten;
+        this.fahrzeugidentifikationsnummer = fahrzeugidentifikationsnummer;
 
     }
     @Override
@@ -27,21 +23,17 @@ public class Auto {
         return Objects.equals(getFahrzeugidentifikationsnummer(), auto.getFahrzeugidentifikationsnummer());
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(verbrauch, sitzplätze, marke, fahrzeugidentifikationsnummer);
-    }
 @SuppressWarnings("java:S106")
     public int getVerbrauch() {
-        return verbrauch;
+        return autoDaten.verbrauch();
     }
 
     public int getSitzplätze() {
-        return sitzplätze;
+        return autoDaten.sitzplätze();
     }
 
     public String getMarke() {
-        return marke;
+        return autoDaten.marke();
     }
     @AggregateID
     public Fahrzeugidentifikationsnummer getFahrzeugidentifikationsnummer() { return fahrzeugidentifikationsnummer; }
