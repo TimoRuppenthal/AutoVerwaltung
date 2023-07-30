@@ -8,11 +8,12 @@ import org.example.domain.AutoRepository;
 
 import java.util.List;
 import java.util.Properties;
+import org.example.domain.Fahrzeugidentifikationsnummer;
 
 @DrivenAdapter
 public class AutoRepositoryImpl implements AutoRepository {
 
-    private final IRepository<Auto, Integer> repository;
+    private final IRepository<Auto, Fahrzeugidentifikationsnummer> repository;
 
     public AutoRepositoryImpl(Properties properties){
         this.repository = RepositoryManager.getRepository(Auto.class, Auto::getFahrzeugidentifikationsnummer, properties);
