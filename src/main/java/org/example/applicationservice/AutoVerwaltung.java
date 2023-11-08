@@ -7,6 +7,7 @@ import java.util.List;
 @ApplicationService
 public class AutoVerwaltung {
     private final AutoRepository autoRepository;
+    private final RegistrierungsDatenRepository registrierungsDatenRepository;
 
     public void add(EmailAdresse emailAdresse, AutoDaten autoDaten){
         autoRepository.add(new Auto(autoDaten, emailAdresse));
@@ -22,11 +23,14 @@ public class AutoVerwaltung {
                 .map(Auto::getEmailAdresse)
                 .toList();
     }
-    public AutoVerwaltung (AutoRepository autoRepository){
+    public AutoVerwaltung (AutoRepository autoRepository, RegistrierungsDatenRepository registrierungsDatenRepository){
         this.autoRepository = autoRepository;
+        this.registrierungsDatenRepository = registrierungsDatenRepository;
     }
-    public void registriere(EmailAdresse emailAdresse, AutoDaten autoDaten){
+    public void registriere(EmailAdresse emailAdresse, AutoDaten autoDaten){registrierungsDatenRepository.add(new RegistrierungsDaten(emailAdresse, autoDaten)); //TODO: Bestätigungscode verschicken
     }
-    public void verifiziere(EmailAdresse emailAdresse, VerifizierungsCode verifizierungsCode){
+    public void verifiziere(EmailAdresse emailAdresse, VerifizierungsCode verifizierungsCode) throws UngueltigerVerifizierungsCode {RegistrierungsDaten registrierungsDaten = registrierungsDatenRepository.get(emailAdresse);
+        add(emailAdresse, registrierungsDaten.getAutoDaten());
+        registrierungsDatenRepository.remove(emailAdresse);
     }
 }
