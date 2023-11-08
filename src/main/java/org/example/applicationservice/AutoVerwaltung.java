@@ -34,4 +34,9 @@ public class AutoVerwaltung {
         add(emailAdresse, registrierungsDaten.getAutoDaten());
         registrierungsDatenRepository.remove(emailAdresse);
     }
+    public  void aktualisiereAutoDaten(EmailAdresse emailAdresse, AutoDaten autoDaten){
+        Auto auto = autoRepository.get(emailAdresse).orElseThrow();
+        auto.setAutoDaten(autoDaten);
+        autoRepository.update(auto);
+    }
 }

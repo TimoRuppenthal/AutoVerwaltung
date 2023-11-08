@@ -3,10 +3,12 @@ package org.example.infrastructure.drivenadapter.persistence;
 import io.jexxa.addend.infrastructure.DrivenAdapter;
 import io.jexxa.infrastructure.RepositoryManager;
 import io.jexxa.infrastructure.persistence.repository.IRepository;
+import org.example.domain.EmailAdresse;
 import org.example.domain.Auto;
 import org.example.domain.AutoRepository;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.Properties;
 import org.example.domain.EmailAdresse;
 
@@ -27,6 +29,15 @@ public class AutoRepositoryImpl implements AutoRepository {
     }
     public void add (Auto auto){
         repository.add(auto);
+    }
+    @Override
+    public Optional<Auto> get(EmailAdresse emailAdresse) {
+        return repository.get(emailAdresse);
+    }
+
+    @Override
+    public void update(Auto auto) {
+        repository.update(auto);
     }
 
 }

@@ -6,7 +6,7 @@ import io.jexxa.addend.applicationcore.AggregateID;
 import java.util.Objects;
 @Aggregate
 public class Auto {
-    private final AutoDaten autoDaten;
+    private AutoDaten autoDaten;
 
     private final EmailAdresse emailAdresse;
 
@@ -37,4 +37,7 @@ public class Auto {
     }
     @AggregateID
     public EmailAdresse getEmailAdresse() { return emailAdresse; }
+    public void setAutoDaten(AutoDaten autoDaten){
+        this.autoDaten = autoDaten;
+    }
 }
