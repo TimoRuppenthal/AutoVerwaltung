@@ -9,6 +9,7 @@ import org.example.domain.RegistrierungsDaten;
 import org.example.domain.RegistrierungsDatenRepository;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.Properties;
 
 @DrivenAdapter
@@ -31,9 +32,9 @@ public class RegistrierungsDatenRepositoryImpl implements RegistrierungsDatenRep
         repository.add(registrierungsDaten);
     }
 
-    public RegistrierungsDaten get(EmailAdresse emailAdresse) {
+    public Optional<RegistrierungsDaten> get(EmailAdresse emailAdresse) {
 
-        return repository.get(emailAdresse).orElse(null);
+        return repository.get(emailAdresse);
     }
 
 }

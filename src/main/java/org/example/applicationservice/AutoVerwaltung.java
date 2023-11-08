@@ -2,6 +2,7 @@ package org.example.applicationservice;
 
 import io.jexxa.addend.applicationcore.ApplicationService;
 import org.example.domain.*;
+import org.example.domainservice.VerifizierungsCodeSender;
 import java.util.List;
 
 @ApplicationService
@@ -27,9 +28,9 @@ public class AutoVerwaltung {
         this.autoRepository = autoRepository;
         this.registrierungsDatenRepository = registrierungsDatenRepository;
     }
-    public void registriere(EmailAdresse emailAdresse, AutoDaten autoDaten){registrierungsDatenRepository.add(new RegistrierungsDaten(emailAdresse, autoDaten)); //TODO: Bestätigungscode verschicken
+    public void registriere(EmailAdresse emailAdresse, AutoDaten autoDaten){registrierungsDatenRepository.add(new RegistrierungsDaten(emailAdresse, autoDaten));
     }
-    public void verifiziere(EmailAdresse emailAdresse, VerifizierungsCode verifizierungsCode) throws UngueltigerVerifizierungsCode {RegistrierungsDaten registrierungsDaten = registrierungsDatenRepository.get(emailAdresse);
+    public void verifiziere(EmailAdresse emailAdresse, VerifizierungsCode verifizierungsCode) throws UngueltigerVerifizierungsCode {RegistrierungsDaten registrierungsDaten = registrierungsDatenRepository.get(emailAdresse).orElseThrow();
         add(emailAdresse, registrierungsDaten.getAutoDaten());
         registrierungsDatenRepository.remove(emailAdresse);
     }
