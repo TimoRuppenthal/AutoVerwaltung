@@ -8,11 +8,11 @@ import java.util.Objects;
 public class Auto {
     private final AutoDaten autoDaten;
 
-    private final Fahrzeugidentifikationsnummer fahrzeugidentifikationsnummer;
+    private final EmailAdresse emailAdresse;
 
-    public Auto(AutoDaten autoDaten, Fahrzeugidentifikationsnummer fahrzeugidentifikationsnummer) {
+    public Auto(AutoDaten autoDaten, EmailAdresse emailAdresse) {
         this.autoDaten = autoDaten;
-        this.fahrzeugidentifikationsnummer = fahrzeugidentifikationsnummer;
+        this.emailAdresse = emailAdresse;
 
     }
     @Override
@@ -20,7 +20,7 @@ public class Auto {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Auto auto = (Auto) o;
-        return Objects.equals(getFahrzeugidentifikationsnummer(), auto.getFahrzeugidentifikationsnummer());
+        return Objects.equals(getEmailAdresse(), auto.getEmailAdresse());
     }
 
 @SuppressWarnings("java:S106")
@@ -28,13 +28,13 @@ public class Auto {
         return autoDaten.verbrauch();
     }
 
-    public int getSitzplätze() {
-        return autoDaten.sitzplätze();
+    public int getSitzplaetze() {
+        return autoDaten.sitzplaetze();
     }
 
     public String getMarke() {
         return autoDaten.marke();
     }
     @AggregateID
-    public Fahrzeugidentifikationsnummer getFahrzeugidentifikationsnummer() { return fahrzeugidentifikationsnummer; }
+    public EmailAdresse getEmailAdresse() { return emailAdresse; }
 }
