@@ -1,10 +1,7 @@
 package org.example.domainservice;
 
 import io.jexxa.addend.applicationcore.DomainService;
-import org.example.domain.Auto;
-import org.example.domain.AutoRepository;
-import org.example.domain.AutoDaten;
-import org.example.domain.Fahrzeugidentifikationsnummer;
+import org.example.domain.*;
 
 import java.util.List;
 
@@ -19,15 +16,15 @@ public class StammdatenService {
 
     public void initStammdaten(){
 
-        final Auto Porsche = new Auto(new AutoDaten(10, 5, "Porsche"), new Fahrzeugidentifikationsnummer(123));
-        final Auto Bugatti = new Auto(new AutoDaten(22, 5, "Bugatti"), new Fahrzeugidentifikationsnummer(234));
+        final Auto porsche = new Auto(new AutoDaten(10, 5, "Porsche"), new EmailAdresse("ruppenthal.timo@gmail.com"));
+        final Auto bugatti = new Auto(new AutoDaten(22, 5, "Bugatti"), new EmailAdresse("planta.jeremie@gmail.com"));
 
         List<Auto> alleAutos = autoRepository.getAll();
-        if(!alleAutos.contains(Porsche)){
-            autoRepository.add(Porsche);
+        if(!alleAutos.contains(porsche)){
+            autoRepository.add(porsche);
         }
-        if(!alleAutos.contains(Bugatti)){
-            autoRepository.add(Bugatti);
+        if(!alleAutos.contains(bugatti)){
+            autoRepository.add(bugatti);
         }
         autoRepository
                 .getAll()
