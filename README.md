@@ -8,7 +8,7 @@ Dieses Projekt soll folgende Features anbieten:
 
 [User-Story Auto registrieren]Als Manager der AutoVerwaltung möchte ich, dass neue Autos beim Hinzufügen in die AutoVerwaltung registriert werden müssen, damit diese automatisiert verifiziert werden können.
 * Bei der Registrierung muss eine gültige E-Mail-Adresse und die AutoDaten angegeben werden
-* Es wird ein 6-stelliger Verifizierungscode an die angegebene E-Mail-Adresse verschickt
+* Es wird eine UUID an die angegebene E-Mail-Adresse verschickt
 * Damit ein Auto in die AutoVerwaltung aufgenommen werden kann, müssen E-Mail-Adresse und Verifizierungscode übergeben werden
 * Der Verifizierungscode verliert nach 24 Stunden seine Gültigkeit
 
